@@ -1,2 +1,3 @@
 https://drive.google.com/drive/folders/1p0nar8-8UL70uPgB_DJFBTT503BaYzr5
 https://www.mongodb.com/docs/mongodb-shell/install/
+https://docs.google.com/document/d/1f19hfM2R-sqBsFkFUain70NGCBcOlLSGKvmMxrfTAtk/edit?tab=t.0
