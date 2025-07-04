@@ -33,7 +33,7 @@ public class Day14_Task001 {
     }
 
     public static void main(String[] args) {
-        Day14_Task001 list = new Day14_Task001();
+        Day14_Task003 list = new Day14_Task003();
         list.add(20);
         list.add(30);
         list.add(40);
