@@ -1,7 +1,8 @@
-public class Day14_Task003 {
+public class Day14_Task004 {
     class Node {
         int data;
         Node next;
+
         Node(int data) {
             this.data = data;
             this.next = null;
@@ -37,12 +38,51 @@ public class Day14_Task003 {
         System.out.println("(head)");
     }
 
+    public void deleteNode(int data) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        // If only one node in the list
+        if (head == tail && head.data == data) {
+            head = null;
+            tail = null;
+            return;
+        }
+
+        // If node to delete is head
+        if (head.data == data) {
+            head = head.next;
+            tail.next = head;
+            return;
+        }
+
+        Node current = head;
+        while (current.next != head) {
+            if (current.next.data == data) {
+                if (current.next == tail) {
+                    tail = current;
+                }
+                current.next = current.next.next;
+                return;
+            }
+            current = current.next;
+        }
+
+        System.out.println("Node not found");
+    }
+
     public static void main(String[] args) {
         Day14_Task004 list = new Day14_Task004();
         list.add(20);
         list.add(30);
         list.add(40);
         list.add(50);
+        System.out.println("Before deletion:");
+        list.traverse();
+        list.deleteNode(30);
+        System.out.println("After deletion:");
         list.traverse();
     }
 }
