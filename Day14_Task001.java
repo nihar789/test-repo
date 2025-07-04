@@ -3,6 +3,7 @@ public class Day14_Task001 {
         int data;
         node next;
 
+
         node(int data){
             this.data=data;
             this.next=null;
