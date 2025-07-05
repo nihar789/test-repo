@@ -5,6 +5,7 @@ public class Node {
 
     // Constructor
     public Node(int data) {
+
         this.data = data;
         this.left = null;
         this.right = null;
