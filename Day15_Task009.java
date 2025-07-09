@@ -28,6 +28,7 @@ class Day15_Task009 {
         gObj.edge[0].src = 1;
         gObj.edge[0].dest = 2;
         gObj.edge[1].src = 1;
+
         gObj.edge[1].dest = 3;
         gObj.edge[2].src = 1;
         gObj.edge[2].dest = 4;
