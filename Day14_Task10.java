@@ -7,7 +7,6 @@ public class Day14_Task10 {
     public Day14_Task10(int capacity){
         queue = new int[capacity];
         front=0;
-
         rare=0;
         size=0;
     }
