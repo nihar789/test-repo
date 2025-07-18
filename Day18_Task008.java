@@ -2,6 +2,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Day18_Task008 {
+
     public static Node createTree(int[] array, int index) {
         if (index >= array.length) return null;
         Node node = new Node(array[index]);
