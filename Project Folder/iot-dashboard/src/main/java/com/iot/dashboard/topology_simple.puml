@@ -1,0 +1,49 @@
+@startuml topology_iot
+title IoT Smart Home - System Topology
+
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle rectangle
+skinparam component {
+  BackgroundColor<<device>> PaleGoldenrod
+  BorderColor<<device>> #6B8E23
+  BackgroundColor<<gateway>> LightBlue
+  BorderColor<<gateway>> #2B6CB0
+  BackgroundColor<<db>> LightYellow
+  BorderColor<<db>> #C2A44B
+}
+skinparam actorStyle awesome
+
+actor "Client 1\n(User TUI)" as C1
+actor "Client 2\n(User TUI)" as C2
+actor "Client 3\n(User TUI)" as C3
+
+cloud "IoT Dashboard\n(Java TUI / Controller)" as APP <<gateway>> #LightBlue
+
+component "📺  TV\n(tv-1)\nRoom: LivingRoom\nStatus: OFF" as TV <<device>> #LightGray
+component "❄  AC\n(ac-1)\nRoom: BedRoom1\nStatus: ON" as AC <<device>> #PaleGreen
+component "🌀  Fan\n(fan-1)\nRoom: HallWay\nStatus: OFF" as FAN <<device>> #LightGray
+component "🤖  RoboVac\n(rv-1)\nRoom: LivingRoom\nStatus: ON" as RV <<device>> #PaleGreen
+component "💡  Light\n(light-1)\nRoom: Balcony\nStatus: OFF" as LIGHT <<device>> #LightGray
+
+database "SQL Database\n(customers + gadgets)" as SQLDB <<db>> #LightYellow
+database "Telemetry DB\n(time-series history - DynamoDB)" as TDB <<db>> #LightYellow
+
+C1 --> APP : login / control
+C2 --> APP : login / control
+C3 --> APP : login / control
+
+APP --> TV     : TCP / control
+APP --> AC     : TCP / control
+APP --> FAN    : TCP / control
+APP --> RV     : TCP / control
+APP --> LIGHT  : TCP / control
+
+TV     -down-> TDB : telemetry (status events)
+AC     -down-> TDB : telemetry (status events)
+FAN    -down-> TDB : telemetry (status events)
+RV     -down-> TDB : telemetry (status events)
+LIGHT  -down-> TDB : telemetry (status events)
+
+APP --> SQLDB : read / write (customers, gadgets, metadata)
+
+@enduml
