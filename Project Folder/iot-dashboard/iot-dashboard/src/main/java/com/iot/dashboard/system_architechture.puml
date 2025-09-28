@@ -1,0 +1,33 @@
+@startuml
+title System Deployment Diagram
+
+node "Home" {
+    component "Java Client\nApplication" as Client
+    node "Device 1" as D1{
+    component "TCP Server" as TCP1
+    }
+    node "Device 2" as D2{
+    component "TCP Server" as TCP2
+    }
+    node "Device 3" as D3{
+    component "TCP Server" as TCP3
+    }
+
+}
+
+
+node "AWS Cloud" {
+    component "Java\nServer" as Spring
+    database "MySQL Server" as MySQL
+    database "DynamoDB" as Dynamo
+}
+
+
+Client --> Spring
+Client --> D1
+Client --> D2
+Client --> D3
+Spring --> MySQL
+Spring -->Dynamo
+
+@enduml

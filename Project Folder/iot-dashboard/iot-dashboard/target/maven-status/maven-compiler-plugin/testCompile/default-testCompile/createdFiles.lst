@@ -1,0 +1,4 @@
+com\iot\dashboard\UpdateGadgetStatusTest.class
+com\iot\dashboard\GadgetDAOTest.class
+com\iot\dashboard\AuthServiceTest.class
+com\iot\dashboard\TelemetryDAOTest.class

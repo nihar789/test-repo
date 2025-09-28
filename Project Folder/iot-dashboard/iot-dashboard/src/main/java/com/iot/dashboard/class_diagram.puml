@@ -1,0 +1,30 @@
+@startuml
+skinparam classAttributeIconSize 0
+left to right direction
+
+class Customer {
+  - id : int
+  - name : String
+  - email : String
+  - password : String
+  + fetchUser()
+  + validateuser()
+  + createuser()
+  + fetchGadgets()
+  + changeGadgetStatus()
+}
+
+class Gadget {
+  - gadgetId : int
+  - userId : int
+  - type : String
+  - model : String
+  - room : String
+  - status : String
+  + list_gadge_by_user_id()
+  + fetch_gadget()
+  + change_gadget_status()
+}
+
+Customer "o..n" --> "1" Gadget
+@enduml

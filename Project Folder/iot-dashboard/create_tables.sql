@@ -1,0 +1,25 @@
+-- create database
+CREATE DATABASE IF NOT EXISTS iot_dashboard;
+USE iot_dashboard;
+
+-- customers table
+CREATE TABLE IF NOT EXISTS customers (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password_hash TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- gadgets table
+CREATE TABLE IF NOT EXISTS gadgets (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  device_id VARCHAR(255) NOT NULL UNIQUE,
+  owner_id BIGINT,
+  type VARCHAR(100),
+  model VARCHAR(100),
+  room VARCHAR(100),
+  status BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (owner_id) REFERENCES customers(id) ON DELETE SET NULL
+)ENGINE=InnoDB;

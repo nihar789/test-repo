@@ -1,0 +1,32 @@
+@startuml
+
+title UML - Use Case Diagram (Customer Actions)
+skinparam dpi 150
+
+top to bottom direction
+
+actor Customer
+
+rectangle "Customer UI / Text UI" as System {
+    usecase "Exit" as UC_Exit
+    usecase "Change Gadget\nStatus" as UC_ChangeStatus
+    usecase "Control Gadgets" as UC_Control
+    usecase "View Gadgets" as UC_View
+    usecase "Login" as UC_Login
+    usecase "Register" as UC_Register
+}
+
+Customer -- UC_Register
+Customer -- UC_Login
+Customer -- UC_View
+Customer -- UC_Control
+Customer -- UC_ChangeStatus
+Customer -- UC_Exit
+
+caption
+ Note: Each use case corresponds to a menu option in the Text UI.
+ Use cases map directly to functional requirements.
+ end caption
+
+
+@enduml
